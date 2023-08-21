@@ -20,14 +20,7 @@ jobs:
         
       - name: Clone Project
         run: echo "Cloning Project..."
-      - uses: actions/checkout@v3.5.3
-      
-      - name: Print File 3,4
-        run: |
-          echo "cat 3"
-          cat 3
-          echo "cat 4"
-          cat 4
+      - uses: actions/checkout@v3.5.3      
 
       - name: Print content and file name of all files from the main directory on the repo.
         run: for file in ./* ; do printf '%s\n' "$file";  cat "$file"; done
