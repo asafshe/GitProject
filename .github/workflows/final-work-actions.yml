@@ -1,0 +1,40 @@
+name: FinalWorkActions
+on:
+  push:
+    # branches:
+    #   - master
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Start
+        run: echo "Hello This Is Final Work Test For Actions"
+
+  job2:
+    runs-on: ubuntu-latest   
+    
+    steps:
+      - name: Welcome
+        run: echo "This is job2. Cloning the project and printing Files on the repo."
+        
+      - name: Clone Project
+        run: echo "Cloning Project..."
+      - uses: actions/checkout@v3.5.3
+      
+      - name: Print File 1,2
+        run: |
+          echo "cat 1"
+          cat 1
+          echo "cat 2"
+          cat 2
+  job3:
+    runs-on: ubuntu-latest
+    needs: [job2,job1]
+    
+    steps:
+        - name: Finish
+          run: echo "This is job3. Actions are Finished"
+
+    
+          
